@@ -1,5 +1,5 @@
 <p align="center">
-<a href="https://github.com/starship/starship">Starship prompt</a> in xonsh shell.
+<a href="https://github.com/starship/starship">Starship</a> cross-shell prompt in xonsh shell.
 </p>
 
 <p align="center">  
