@@ -22,6 +22,16 @@ xpip install xontrib-prompt-starship
 xontrib load prompt_starship
 ```
 
+## Recommendation
+
+We suggest to use `@` character to remember about you're using xonsh syntax and to potentially spread the word about xonsh if you make a screenshot or show your terminal to friends or collegues. Add this to your `~/.config/starship.toml`:
+```ini
+[character]
+success_symbol = "[@](bold green)"
+error_symbol = "[@](bold red)"
+```
+If you're using Starship for another shell and you want to have different characters for the other shell and for the xonsh shell you can just put the lines above to the new `~/.config/starship_xonsh.toml` file and then you should add to the `~/.xonshrc` file the line `$STARSHIP_CONFIG = '~/.config/starship_xonsh.toml'` before `xontrib load prompt_starship`.
+
 ## Credits
 
 This package was created with [xontrib cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter).
