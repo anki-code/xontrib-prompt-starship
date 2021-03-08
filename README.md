@@ -33,5 +33,5 @@ error_symbol = "[@](bold red)"
 If you're using Starship for both for another shell and for xonsh and you want to have different characters you can just put the lines above to the new `~/.config/starship_xonsh.toml` file. Then you should add to the `~/.xonshrc` file the line `$STARSHIP_CONFIG = '~/.config/starship_xonsh.toml'` before `xontrib load prompt_starship`.
 
 ## Credits
-
-This package was created with [xontrib cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter).
+* This package is the part of [ergopack](https://github.com/anki-code/xontrib-ergopack) - the pack of ergonomic xontribs.
+* This package was created with [xontrib cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter).
