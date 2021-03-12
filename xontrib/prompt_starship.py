@@ -14,10 +14,9 @@ def _starship_prompt(cfg=None):
         '--jobs', str(len(__xonsh__.all_jobs))
     ]
 
-    if cfg:
-        with __xonsh__.env.swap(STARSHIP_CONFIG=cfg):
-            return __xonsh__.subproc_captured_stdout(cmd)
-    return __xonsh__.subproc_captured_stdout(cmd)
+    env = {'STARSHIP_CONFIG': cfg} if cfg else {}
+    with __xonsh__.env.swap(env):
+        return __xonsh__.subproc_captured_stdout(cmd)
 
         
 _left_cfg  = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_LEFT' , '')
