@@ -22,6 +22,15 @@ xpip install xontrib-prompt-starship
 xontrib load prompt_starship
 ```
 
+To split the prompt into __two parts__ specify the __full path__ (including the file name) of the respective left/right prompt configuration files in the respective `$XONTRIB_PROMPT_STARSHIP_LEFT`/`XONTRIB_PROMPT_STARSHIP_RIGHT` environment variables in your profile, for example:
+
+```sh
+from os import path
+_home = path.expanduser("~") # to make it work across different OS
+$XONTRIB_PROMPT_STARSHIP_LEFT  = path.join(_home, ".config/starship/starship_left.toml")
+$XONTRIB_PROMPT_STARSHIP_RIGHT = path.join(_home, ".config/starship/starship_right.toml")
+```
+
 ## Recommendation
 
 We suggest to use `@` character to remember about you're using xonsh syntax and to potentially spread the word about xonsh if you make a screenshot or show your terminal to friends or collegues. Add this to your `~/.config/starship.toml`:
