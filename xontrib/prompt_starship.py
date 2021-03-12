@@ -1,31 +1,38 @@
-from os import path
+import sys
+from pathlib import Path
 
-_starship_cfg_left  = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_LEFT' , '')
-_starship_cfg_right = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_RIGHT', '')
 
 __xonsh__.env['STARSHIP_SHELL'] = 'sh'  # Fix https://github.com/anki-code/xontrib-prompt-starship/issues/1
 __xonsh__.env['STARSHIP_SESSION_KEY'] = __xonsh__.subproc_captured_stdout(['starship','session']).strip()
 
-def _starship_prompt():
-  return __xonsh__.subproc_captured_stdout([
-    'starship', 'prompt',
-    '--status'       , str(int( __xonsh__.history[-1].rtn))\
-      if len(__xonsh__.history) > 0 else '0',
-    '--cmd-duration' , str(int((__xonsh__.history[-1].ts[1] - __xonsh__.history[-1].ts[0])*1000))\
-      if len(__xonsh__.history) > 0 else '0',
-    '--jobs', str(len(__xonsh__.all_jobs))
-    ])
 
-def _starship_prompt_left():
-  if _starship_cfg_left:
-    with __xonsh__.env.swap(STARSHIP_CONFIG=_starship_cfg_left):
-      return _starship_prompt()
-  else:
-    return _starship_prompt()
-__xonsh__.env['PROMPT']	= _starship_prompt_left
+def _starship_prompt(cfg=None):
+    cmd = [
+        'starship', 'prompt',
+        '--status', str(int( __xonsh__.history[-1].rtn)) if len(__xonsh__.history) > 0 else '0',
+        '--cmd-duration' , str(int((__xonsh__.history[-1].ts[1] - __xonsh__.history[-1].ts[0])*1000)) if len(__xonsh__.history) > 0 else '0',
+        '--jobs', str(len(__xonsh__.all_jobs))
+    ]
 
-if path.exists(_starship_cfg_right):
-  def _starship_prompt_right():
-    with __xonsh__.env.swap(STARSHIP_CONFIG=_starship_cfg_right):
-      return _starship_prompt()
-  __xonsh__.env['RIGHT_PROMPT']	= _starship_prompt_right
+    if cfg:
+        with __xonsh__.env.swap(STARSHIP_CONFIG=cfg):
+            return __xonsh__.subproc_captured_stdout(cmd)
+    return __xonsh__.subproc_captured_stdout(cmd)
+
+        
+_left_cfg  = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_LEFT' , '')
+_left_cfg = Path(_left_cfg).expanduser() if _left_cfg else _left_cfg
+
+if _left_cfg and not _left_cfg.exists():
+    print(f"xontrib-prompt-starship: The path doesn't exist: {_left_cfg}", file=sys.stderr)
+
+__xonsh__.env['PROMPT']	= lambda: _starship_prompt(_left_cfg)
+
+
+_right_cfg = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_RIGHT', '')
+_right_cfg = Path(_right_cfg ).expanduser() if _right_cfg else _right_cfg 
+if _right_cfg:
+    if _right_cfg.exists():
+        __xonsh__.env['RIGHT_PROMPT'] = lambda: _starship_prompt(_right_cfg)
+    else:
+        print(f"xontrib-prompt-starship: The path doesn't exist: {_right_cfg}", file=sys.stderr)
