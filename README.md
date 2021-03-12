@@ -34,7 +34,7 @@ If you're using Starship for both for another shell and for xonsh and you want t
 
 ## Configuration
 
-You can set the different starship configs for left, right and bottom parts of prompt:
+You can set the different starship configs for left, right and bottom parts of prompt when your shell type is prompt-toolkit:
 
 ```python
 $XONTRIB_PROMPT_STARSHIP_LEFT_CONFIG = "~/.config/starship_xonsh_left.toml"
@@ -45,7 +45,7 @@ xontrib load prompt_starship
 
 ## Known issues
 
-* [Prompt toolkit issue](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1241): the right prompt at the bottom. 
+* [Prompt toolkit issue: the right prompt at the bottom.](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1241)
 * The using of bottom prompt is not properly tested and adopted to cute appearance.
 
 ## Credits
