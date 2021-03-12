@@ -13,18 +13,14 @@ def _starship_prompt(cfg=None):
         '--cmd-duration' , str(int((__xonsh__.history[-1].ts[1] - __xonsh__.history[-1].ts[0])*1000)) if len(__xonsh__.history) > 0 else '0',
         '--jobs', str(len(__xonsh__.all_jobs))
     ]
-
-    env = {'STARSHIP_CONFIG': cfg} if cfg else {}
-    with __xonsh__.env.swap(env):
+    with __xonsh__.env.swap({'STARSHIP_CONFIG': cfg} if cfg else {}):
         return __xonsh__.subproc_captured_stdout(cmd)
 
         
 _left_cfg  = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_LEFT' , '')
 _left_cfg = Path(_left_cfg).expanduser() if _left_cfg else _left_cfg
-
 if _left_cfg and not _left_cfg.exists():
     print(f"xontrib-prompt-starship: The path doesn't exist: {_left_cfg}", file=sys.stderr)
-
 __xonsh__.env['PROMPT']	= lambda: _starship_prompt(_left_cfg)
 
 
