@@ -34,17 +34,18 @@ If you're using Starship for both for another shell and for xonsh and you want t
 
 ## Configuration
 
-You can set the different starship configs for left and right parts of prompt:
+You can set the different starship configs for left, right and bottom parts of prompt:
 
 ```python
-$XONTRIB_PROMPT_STARSHIP_LEFT_CONFIG  = "~/.config/starship_xonsh_left.toml"
+$XONTRIB_PROMPT_STARSHIP_LEFT_CONFIG = "~/.config/starship_xonsh_left.toml"
 $XONTRIB_PROMPT_STARSHIP_RIGHT_CONFIG = "~/.config/starship_xonsh_right.toml"
+$XONTRIB_PROMPT_STARSHIP_BOTTOM_CONFIG = "~/.config/starship_xonsh_bottom.toml"
 xontrib load prompt_starship
 ```
 
 ## Known issues
 
-In case of using left and right prompt with more than one line the result could have issues. The case with more than one line not properly tested.
+In case of using the right and bottom prompt parts with more than one line the result could has issues. 
 
 ## Credits
 * This package is the part of [ergopack](https://github.com/anki-code/xontrib-ergopack) - the pack of ergonomic xontribs.
