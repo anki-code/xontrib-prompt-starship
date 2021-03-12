@@ -45,7 +45,8 @@ xontrib load prompt_starship
 
 ## Known issues
 
-In case of using the right and bottom prompt parts with more than one line the result could has issues. 
+* [Prompt toolkit issue](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1241): the right prompt at the bottom. 
+* The using of bottom prompt is not properly tested and adopted to cute appearance.
 
 ## Credits
 * This package is the part of [ergopack](https://github.com/anki-code/xontrib-ergopack) - the pack of ergonomic xontribs.
