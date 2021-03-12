@@ -7,14 +7,13 @@ __xonsh__.env['STARSHIP_SESSION_KEY'] = __xonsh__.subproc_captured_stdout(['star
 
 
 def _starship_prompt(cfg=None):
-    cmd = [
+    with __xonsh__.env.swap({'STARSHIP_CONFIG': cfg} if cfg else {}):
+        return __xonsh__.subproc_captured_stdout([
         'starship', 'prompt',
         '--status', str(int( __xonsh__.history[-1].rtn)) if len(__xonsh__.history) > 0 else '0',
         '--cmd-duration' , str(int((__xonsh__.history[-1].ts[1] - __xonsh__.history[-1].ts[0])*1000)) if len(__xonsh__.history) > 0 else '0',
         '--jobs', str(len(__xonsh__.all_jobs))
-    ]
-    with __xonsh__.env.swap({'STARSHIP_CONFIG': cfg} if cfg else {}):
-        return __xonsh__.subproc_captured_stdout(cmd)
+    ])
 
         
 _left_cfg  = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_LEFT' , '')
