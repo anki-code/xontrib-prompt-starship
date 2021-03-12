@@ -24,9 +24,18 @@ __xonsh__.env['PROMPT']	= lambda: _starship_prompt(_left_cfg)
 
 
 _right_cfg = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_RIGHT_CONFIG', '')
-_right_cfg = Path(_right_cfg ).expanduser() if _right_cfg else _right_cfg 
+_right_cfg = Path(_right_cfg).expanduser() if _right_cfg else _right_cfg 
 if _right_cfg:
     if _right_cfg.exists():
         __xonsh__.env['RIGHT_PROMPT'] = lambda: _starship_prompt(_right_cfg)
     else:
         print(f"xontrib-prompt-starship: The path doesn't exist: {_right_cfg}", file=sys.stderr)
+
+        
+_bottom_cfg = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_BOTTOM_CONFIG', '')
+_bottom_cfg = Path(_bottom_cfg).expanduser() if _bottom_cfg else _bottom_cfg 
+if _bottom_cfg:
+    if _bottom_cfg.exists():
+        __xonsh__.env['BOTTOM_TOOLBAR'] = lambda: _starship_prompt(_bottom_cfg)
+    else:
+        print(f"xontrib-prompt-starship: The path doesn't exist: {_bottom_cfg}", file=sys.stderr)
