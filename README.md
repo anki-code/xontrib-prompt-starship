@@ -22,15 +22,6 @@ xpip install xontrib-prompt-starship
 xontrib load prompt_starship
 ```
 
-To split the prompt into __two parts__ specify the __full path__ (including the file name) of the respective left/right prompt configuration files in the respective `$XONTRIB_PROMPT_STARSHIP_LEFT`/`XONTRIB_PROMPT_STARSHIP_RIGHT` environment variables in your profile, for example:
-
-```sh
-from os import path
-_home = path.expanduser("~") # to make it work across different OS
-$XONTRIB_PROMPT_STARSHIP_LEFT  = path.join(_home, ".config/starship/starship_left.toml")
-$XONTRIB_PROMPT_STARSHIP_RIGHT = path.join(_home, ".config/starship/starship_right.toml")
-```
-
 ## Recommendation
 
 We suggest to use `@` character to remember about you're using xonsh syntax and to potentially spread the word about xonsh if you make a screenshot or show your terminal to friends or collegues. Add this to your `~/.config/starship.toml`:
@@ -40,6 +31,16 @@ success_symbol = "[@](bold green)"
 error_symbol = "[@](bold red)"
 ```
 If you're using Starship for both for another shell and for xonsh and you want to have different characters you can just put the lines above to the new `~/.config/starship_xonsh.toml` file. Then you should add to the `~/.xonshrc` file the line `$STARSHIP_CONFIG = '~/.config/starship_xonsh.toml'` before `xontrib load prompt_starship`.
+
+## Configuration
+
+You can set the different starship configs for left and right parts of prompt:
+
+```python
+$XONTRIB_PROMPT_STARSHIP_LEFT  = "~/.config/starship_xonsh_left.toml"
+$XONTRIB_PROMPT_STARSHIP_RIGHT = "~/.config/starship_xonsh_right.toml"
+xontrib load prompt_starship
+```
 
 ## Credits
 * This package is the part of [ergopack](https://github.com/anki-code/xontrib-ergopack) - the pack of ergonomic xontribs.
