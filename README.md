@@ -43,7 +43,7 @@ $XONTRIB_PROMPT_STARSHIP_BOTTOM_CONFIG = "~/.config/starship_xonsh_bottom.toml"
 xontrib load prompt_starship
 ```
 
-In case of [using starship as part of another prompt]() you can add starship prompt to `$PROMPT_FIELDS` without replacing the current prompt:
+In case of [using starship as part of another prompt](https://github.com/anki-code/xontrib-prompt-bar/blob/master/README.md#using-starship-cross-shell-prompt-for-rendering-sections) you can add starship prompt to `$PROMPT_FIELDS` without replacing the current prompt:
 ```python
 $XONTRIB_PROMPT_STARSHIP_REPLACE_PROMPT = False
 xontrib load prompt_starship
