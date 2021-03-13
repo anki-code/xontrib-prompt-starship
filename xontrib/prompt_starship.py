@@ -15,7 +15,9 @@ def _starship_prompt(cfg=None):
             '--jobs', str(len(__xonsh__.all_jobs))
         ])
 
+    
 _replace = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_REPLACE_PROMPT' , True)
+    
     
 _left_cfg  = __xonsh__.env.get('XONTRIB_PROMPT_STARSHIP_LEFT_CONFIG' , '')
 _left_cfg = Path(_left_cfg).expanduser() if _left_cfg else _left_cfg
