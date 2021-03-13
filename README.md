@@ -44,7 +44,7 @@ xontrib load prompt_starship
 ```
 
 In case of [using starship as part of another prompt]() you can add starship prompt to `$PROMPT_FIELDS` without replacing the current prompt:
-```
+```python
 $XONTRIB_PROMPT_STARSHIP_REPLACE_PROMPT = False
 xontrib load prompt_starship
 print($PROMPT_FIELDS['starship_left']())
