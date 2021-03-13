@@ -43,11 +43,19 @@ $XONTRIB_PROMPT_STARSHIP_BOTTOM_CONFIG = "~/.config/starship_xonsh_bottom.toml"
 xontrib load prompt_starship
 ```
 
+In case of [using starship as part of another prompt]() you can add starship prompt to `$PROMPT_FIELDS` without replacing the current prompt:
+```
+$XONTRIB_PROMPT_STARSHIP_REPLACE_PROMPT = False
+xontrib load prompt_starship
+print($PROMPT_FIELDS['starship_left']())
+```
+
 ## Known issues
 
 * [Prompt toolkit issue: the right prompt at the bottom.](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1241)
 * The using of bottom prompt is not properly tested and adopted to cute appearance.
 
 ## Credits
+* The xontrib-prompt-starship can be used as part of [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar).
 * This package is the part of [ergopack](https://github.com/anki-code/xontrib-ergopack) - the pack of ergonomic xontribs.
 * This package was created with [xontrib cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter).
