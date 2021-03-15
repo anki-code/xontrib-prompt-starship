@@ -56,7 +56,7 @@ print($PROMPT_FIELDS['starship_left']())
 ## Known issues
 
 * [Prompt toolkit issue: the right prompt at the bottom.](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1241)
-* The using of bottom prompt is not properly tested and adopted to cute appearance.
+* The using of bottom toolbar is not properly tested and adopted to cute appearance.
 
 ## Credits
 * The xontrib-prompt-starship can be used as part of [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar).
