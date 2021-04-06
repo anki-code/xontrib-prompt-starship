@@ -34,7 +34,12 @@ We suggest to use `@` character to remember about you're using xonsh syntax and 
 success_symbol = "[@](bold green)"
 error_symbol = "[@](bold red)"
 ```
-If you're using Starship for both for another shell and for xonsh and you want to have different characters you can just put the lines above to the new `~/.config/starship_xonsh.toml` file. Then you should add to the `~/.xonshrc` file the line `$STARSHIP_CONFIG = '~/.config/starship_xonsh.toml'` before `xontrib load prompt_starship`.
+If you're using Starship for both for another shell and for xonsh and you want to have different characters you can just put the lines above to the new `~/.config/starship_xonsh.toml` file. Then you should add to the `~/.xonshrc`: 
+
+```python
+$STARSHIP_CONFIG = '~/.config/starship_xonsh.toml'
+xontrib load prompt_starship
+```
 
 ## Configuration
 
