@@ -15,6 +15,7 @@ Additional features:
 To install use pip:
 
 ```bash
+# You already have Starship installed. Then:
 xpip install xontrib-prompt-starship
 # or: xpip install -U git+https://github.com/anki-code/xontrib-prompt-starship
 ```
