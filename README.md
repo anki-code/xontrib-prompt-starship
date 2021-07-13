@@ -68,3 +68,4 @@ print($PROMPT_FIELDS['starship_left']())
 * The xontrib-prompt-starship can be used as part of [xontrib-prompt-bar](https://github.com/anki-code/xontrib-prompt-bar).
 * This package is the part of [ergopack](https://github.com/anki-code/xontrib-ergopack) - the pack of ergonomic xontribs.
 * This package was created with [xontrib cookiecutter template](https://github.com/xonsh/xontrib-cookiecutter).
+* Adding support for xonsh inside Starship - https://github.com/starship/starship/pull/2807
