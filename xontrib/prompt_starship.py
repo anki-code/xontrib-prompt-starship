@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 
 
-__xonsh__.env['STARSHIP_SHELL'] = 'sh'  # Fix https://github.com/anki-code/xontrib-prompt-starship/issues/1
+__xonsh__.env['STARSHIP_SHELL'] = 'xonsh'
 __xonsh__.env['STARSHIP_SESSION_KEY'] = __xonsh__.subproc_captured_stdout(['starship','session']).strip()
 
 
