@@ -1,5 +1,7 @@
 <p align="center">
 <a href="https://github.com/starship/starship">Starship</a> cross-shell prompt in xonsh shell.
+<br><br>
+<img src="https://repository-images.githubusercontent.com/345190141/5ab8de00-7ed9-11eb-8545-3582ec7e054a">
 </p>
 
 <p align="center">  
