@@ -61,6 +61,11 @@ xontrib load prompt_starship
 print($PROMPT_FIELDS['starship_left']())
 ```
 
+Result:
+
+<img src="https://raw.githubusercontent.com/anki-code/xontrib-prompt-bar/master/static/xontrib-prompt-bar-starship.png" alt="Prompt bar with starship sections.">
+
+
 ## Known issues
 
 * [Prompt toolkit issue: the right prompt at the bottom.](https://github.com/prompt-toolkit/python-prompt-toolkit/issues/1241)
