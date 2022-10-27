@@ -30,7 +30,7 @@ xontrib load prompt_starship
 
 ## Recommendation
 
-We suggest to use `@` character to remember about you're using xonsh syntax and to potentially spread the word about xonsh if you make a screenshot or show your terminal to friends or collegues. Add this to your `~/.config/starship.toml`:
+We suggest to use `@` character to remember about [you're using xonsh syntax](https://github.com/anki-code/xonsh-cheatsheet#three-most-frequent-things-that-newcomers-missed) and to potentially spread the word about xonsh if you make a screenshot or show your terminal to friends or collegues. Add this to your `~/.config/starship.toml`:
 ```ini
 [character]
 success_symbol = "[@](bold green)"
