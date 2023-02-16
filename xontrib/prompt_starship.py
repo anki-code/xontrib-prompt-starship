@@ -1,3 +1,5 @@
+"""Starship cross-shell prompt in xonsh shell. """
+
 import sys
 import os
 from pathlib import Path
