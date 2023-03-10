@@ -30,15 +30,14 @@ xontrib load prompt_starship
 
 ## Recommendation
 
-We suggest to use `@` character to remember about [you're using xonsh syntax](https://github.com/anki-code/xonsh-cheatsheet#three-most-frequent-things-that-newcomers-missed) and to potentially spread the word about xonsh if you make a screenshot or show your terminal to friends or collegues. Add this to your `~/.config/starship.toml`:
+We suggest to use `@` character to remember about [you're using xonsh syntax](https://github.com/anki-code/xonsh-cheatsheet#three-most-frequent-things-that-newcomers-missed) and to potentially spread the word about xonsh if you make a screenshot or show your terminal to friends or collegues:
 ```ini
+mkdir -p ~/.config/ && echo @("""
 [character]
 success_symbol = "[@](bold green)"
 error_symbol = "[@](bold red)"
-```
-If you're using Starship for both for another shell and for xonsh and you want to have different characters you can just put the lines above to the new `~/.config/starship_xonsh.toml` file. Then you should add to the `~/.xonshrc`: 
+""".strip()) > ~/.config/starship_xonsh.toml
 
-```python
 $STARSHIP_CONFIG = '~/.config/starship_xonsh.toml'
 xontrib load prompt_starship
 ```
