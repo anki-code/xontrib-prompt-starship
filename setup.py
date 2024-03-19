@@ -9,7 +9,7 @@ except (IOError, OSError):
 
 setuptools.setup(
     name='xontrib-prompt-starship',
-    version='0.3.4',
+    version='0.3.5',
     license='MIT',
     author='anki-code',
     author_email='no@no.no',
