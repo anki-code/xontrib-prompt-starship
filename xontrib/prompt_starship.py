@@ -10,11 +10,20 @@ __xonsh__.env['STARSHIP_SESSION_KEY'] = __xonsh__.subproc_captured_stdout(['star
 
 def _starship_prompt(cfg: str) -> None:
     import os
+    hist = __xonsh__.history
+    if len(hist) > 0:
+        rtn = hist[-1].rtn
+        status = str(int(rtn)) if rtn is not None else '0'
+        ts = hist[-1].ts
+        duration = str(int((ts[1] - ts[0]) * 1000)) if ts[1] is not None else '0'
+    else:
+        status = '0'
+        duration = '0'
     with __xonsh__.env.swap({'STARSHIP_CONFIG': cfg} if cfg else {}):
         return __xonsh__.subproc_captured_stdout([
             'starship', 'prompt',
-            ('--status=' + (str(int( __xonsh__.history[-1].rtn)) if len(__xonsh__.history) > 0 else '0')),
-            '--cmd-duration' , str(int((__xonsh__.history[-1].ts[1] - __xonsh__.history[-1].ts[0])*1000)) if len(__xonsh__.history) > 0 else '0',
+            '--status=' + status,
+            '--cmd-duration', duration,
             '--jobs', str(len([j for j in __xonsh__.all_jobs.values() if j['pids']])),
             '--terminal-width', str(os.get_terminal_size().columns),
         ])
